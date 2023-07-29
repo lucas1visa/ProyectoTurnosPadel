@@ -3,21 +3,19 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
    sequelize.define('Turno', {
       id: {
-         type: DataTypes.INTEGER,
-         allowNull: false,
+         type: DataTypes.UUID,
+         defaultValue: DataTypes.UUIDV4,
          primaryKey: true,
-         autoIncrement: true
       },
       fecha: {
-         type: DataTypes.DATE,
+         type: DataTypes.STRING,
          allowNull: false
       },
       horaInicio: {
-         type: DataTypes.TIME,
-         allowNull: false
+         type: DataTypes.STRING,
       },
       horaFin: {
-         type: DataTypes.TIME,
+         type: DataTypes.STRING,
          allowNull: false
       },
       nombreCliente: {
