@@ -44,5 +44,25 @@ const crearTurno = async (
     return null;
   }
 };
+const deleteTurnoUsers = async(id)=>{
+  const numDeletedRows = await Turno.destroy({where:{
+    id:id,
+  }})
+}
+const updateTurnoUsers = async (id, estado) => {
+  try {
+    // Utiliza el método 'update' para actualizar el estado del turno por su ID
+    const numUpdatedRows = await Turno.update(
+      { estado: estado },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+  } catch (error) {
+    return { success: false, message: 'Error al actualizar el turno.' };
+  }
+};
 
-module.exports = { turnos, crearTurno };
+module.exports = { turnos, crearTurno,deleteTurnoUsers,updateTurnoUsers };

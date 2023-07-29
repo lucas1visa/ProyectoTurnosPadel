@@ -21,15 +21,10 @@ const crearUsers = async(name, email, password) => {
             name, email, password
         });
 
-        // Asociar los turnos creados por el usuario utilizando el método setTurnos
-        await nuevoUsuario.setTurnos(tusTurnos);
-
         return nuevoUsuario;
     } catch (error) {
         console.error("Error al cargar el usuario:", error);
         return null;
     }
 };
-
-
 module.exports= {users,crearUsers}

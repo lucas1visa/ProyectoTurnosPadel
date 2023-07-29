@@ -1,4 +1,4 @@
-const {turnos,crearTurno} = require("../controllers/controllerTurnos")
+const {turnos,crearTurno,deleteTurnoUsers,updateTurnoUsers} = require("../controllers/controllerTurnos")
 const getTurnos =async(req,res)=>{
     try {
         const todosLosTurno = await turnos()
@@ -20,6 +20,28 @@ const postTurnos = async(req, res)=>{
     }
 }
 
+const deleteTurno = async(req,res)=>{
+    const {id}= req.body
+    const delet = await deleteTurnoUsers(id)
+    try {
+        res.status(200).send("Se elimino el turno correctamente")
+    } catch (error) {
+      res.status(409).send(error.message);
 
+    }
+}
+const updateTurno = async(req,res)=>{
+    const {id,estado} = req.body
+    const update = await updateTurnoUsers(id,estado)
+    try {
+        if(estado === "confirmado"){
+        return res.status(200).send("Se Confimo turno correctamente")}
+        if(estado === "cancelado"){
+        return res.status(200).send("Se cancelo el turno")}
+    } catch (error) {
+      res.status(409).send(error.message);
 
-module.exports = {getTurnos,postTurnos}
+    }
+}
+
+module.exports = {getTurnos,postTurnos,deleteTurno,updateTurno}
