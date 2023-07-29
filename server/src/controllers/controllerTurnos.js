@@ -1,14 +1,16 @@
-// Importar el modelo "Turnos" desde el archivo '../db'
-const { Turno } = require("../db");
+const { User, Turno } = require("../db");
 
-// Definir la función "turnos" como asíncrona para trabajar con await
 const turnos = async () => {
   try {
-    // Esperar la resolución de la promesa devuelta por Turnos.findAll()
-    const turnosData = await Turno.findAll();
-    return turnosData; // Retornar los datos de los turnos
+    const turnosData = await Turno.findAll({
+      include: {
+        model: User,
+        attributes: ["name"],
+        through: { attributes: [] },
+      },
+    });
+    return turnosData;
   } catch (error) {
-    // Manejo de errores en caso de que ocurra un problema al obtener los turnos
     console.error("Error al obtener los turnos:", error);
     return null;
   }
@@ -21,23 +23,26 @@ const crearTurno = async (
   nombreCliente,
   telefonoCliente,
   estado,
-  name,
+  usuarioId,
 ) => {
-//   const existingActivity = await Turno.findOne({ where: { horaInicio } });
-//   if (existingActivity) {
-//     throw new Error("Turno no disponible");
-//   }
-  const nuevoTurno = await Turno.create({
-    fecha,
-    horaInicio,
-    horaFin,
-    nombreCliente,
-    telefonoCliente,
-    estado,
-  });
-//   await nuevoTurno.setUsers(name)
-  return nuevoTurno
+  try {
+    const nuevoTurno = await Turno.create({
+      fecha,
+      horaInicio,
+      horaFin,
+      nombreCliente,
+      telefonoCliente,
+      estado,
+    });
+    
+    const usuario = await User.findByPk(usuarioId);
+    await nuevoTurno.addUser(usuario); // Utiliza addUser para establecer la relación
+
+    return nuevoTurno;
+  } catch (error) {
+    console.error("Error al crear el turno:", error);
+    return null;
+  }
 };
 
-// Exportar la función "turnos" para poder utilizarla en otros archivos
 module.exports = { turnos, crearTurno };

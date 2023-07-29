@@ -1,8 +1,6 @@
 const { Router } = require("express");
-const {getTurnos,postTurnos} = require("../handlers/handlersTurnos")
+const {getUsers,postUsers} = require("../handlers/handlersUsers")
 const  routesUsers = Router();
-routesUsers.get("/" ,getTurnos)
-routesUsers.post("/" ,postTurnos)
-
-
+routesUsers.get("/" ,getUsers)
+routesUsers.post("/" ,postUsers)
 module.exports = routesUsers;

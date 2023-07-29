@@ -30,7 +30,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { User, Turno } = sequelize.models;
 User.belongsToMany(Turno, { through: 'UserTurnos' });
-Turno.belongsTo(User, { as: 'usuario', through: 'UserTurnos' });
+Turno.belongsToMany(User, { through: 'UserTurnos' });
 
 
 // Aca vendrian las relaciones
