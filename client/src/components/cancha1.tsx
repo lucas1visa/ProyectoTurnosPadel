@@ -20,7 +20,7 @@ export function Cancha1() {
   const handleOpen = () => setOpen((cur) => !cur);
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
   return (
-    <> <div className="flex items-center justify-center mt-15">
+    <> <div className="flex items-center justify-center m-20">
         <div >
       <Card
         className="h-64 w-96 cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
