@@ -3,7 +3,8 @@ import { Button, Card, Typography } from "@material-tailwind/react";
 const TABLE_HEAD = ["Horario", "Estado", "Fecha", ""];
  
 const TABLE_ROWS = [
-  {
+  
+  { 
     name: "10:00",
     job: "Turno Disponible",
     date: "23/04/18",
