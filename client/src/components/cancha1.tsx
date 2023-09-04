@@ -11,6 +11,7 @@ import {
   Card,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import Horarios from "./horarios";
 
  
 export function Cancha1() {
@@ -51,17 +52,12 @@ export function Cancha1() {
           </div>
         </DialogHeader>
         <DialogBody divider={true} className="p-0">
-          <img
-            alt="nature"
-            className="h-[30rem] w-full object-cover object-center"
-            src="https://img.freepik.com/vector-gratis/ilustracion-concepto-padel_114360-15881.jp"
-          />
+          <Horarios></Horarios>
         </DialogBody>
         <DialogFooter className="justify-between">
         </DialogFooter>
       </Dialog>
       {/* Segunda carta */}
-     
     </div>
     </>
   );
