@@ -6,40 +6,40 @@ const TABLE_ROWS = [
   
   { 
     name: "10:00",
-    job: "Turno Disponible",
+    job: " Disponible",
     date: "23/04/18",
   },
   {
     name: "12:00",
-    job: "Turno Disponible",
+    job: " en reserva",
     date: "23/04/18",
   },
   {
     name: "14:00",
-    job: "Turno Disponible",
+    job: " Disponible",
     date: "19/09/17",
   },
   {
     name: "16:00",
-    job: "Turno Disponible",
+    job: " Disponible",
     date: "24/12/08",
   },
   {
     name: "18:00",
-    job: "Turno Disponible",
+    job: " Disponible",
     date: "04/10/21",
   },
   {
     name: "20:00",
-    job: "Turno No Disponible",
+    job: " No Disponible",
     date: "04/10/21",
   },{
     name: "22:00",
-    job: "Turno No Disponible",
+    job: " No Disponible",
     date: "04/10/21",
   },{
     name: "00:00",
-    job: "Turno No Disponible",
+    job: " No Disponible",
     date: "04/10/21",
   },
 ];
@@ -80,11 +80,7 @@ const Horarios = () => {
                         {job}
                       </Typography>
                     </td>
-                    <td className={classes}>
-                      <Typography variant="small" color="blue-gray" className="font-normal">
-                        {date}
-                      </Typography>
-                    </td>
+                
                     <td className={`${classes} bg-blue-gray-50/50`}>
                         <Button>Reservar</Button>
                     </td>
