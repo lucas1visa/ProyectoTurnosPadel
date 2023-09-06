@@ -1,4 +1,4 @@
-import { Button, Card, Typography } from "@material-tailwind/react";
+import { Button, Card, Typography,Chip} from "@material-tailwind/react";
  
 const TABLE_HEAD = ["Horario", "Estado", "Fecha", ""];
  
@@ -6,36 +6,36 @@ const TABLE_ROWS = [
   
   { 
     name: "10:00",
-    job: " Disponible",
+    job: "Disponible",
     date: "23/04/18",
   },
   {
     name: "12:00",
-    job: " en reserva",
+    job: "en reserva",
     date: "23/04/18",
   },
   {
     name: "14:00",
-    job: " Disponible",
+    job: "Disponible",
     date: "19/09/17",
   },
   {
     name: "16:00",
-    job: " Disponible",
+    job: "Disponible",
     date: "24/12/08",
   },
   {
     name: "18:00",
-    job: " Disponible",
+    job: "Disponible",
     date: "04/10/21",
   },
   {
     name: "20:00",
-    job: " No Disponible",
+    job: "No Disponible",
     date: "04/10/21",
   },{
     name: "22:00",
-    job: " No Disponible",
+    job: "No Disponible",
     date: "04/10/21",
   },{
     name: "00:00",
@@ -77,7 +77,20 @@ const Horarios = () => {
                     </td>
                     <td className={`${classes} bg-blue-gray-50/50`}>
                       <Typography variant="small" color="blue-gray" className="font-normal">
-                        {job}
+                      <div className="w-max">
+                        <Chip
+                          size="sm"
+                          variant="ghost"
+                          value={job}
+                          color={
+                            job == "Disponible"
+                              ? "green"
+                              : job == "en reserva"
+                              ? "amber"
+                              : "red"
+                          }
+                        />
+                      </div>
                       </Typography>
                     </td>
                 
