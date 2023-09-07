@@ -4,6 +4,9 @@ import { Inter } from 'next/font/google'
 import Navegacion from '@/components/Navegacion'
 import FooterPadel from '@/components/footer'
 import Providers from './Providers'
+import { ComplexNavbar } from '@/components/NavBar'
+import imagefondo from '../../public/6328120.jpg'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body> 
+    <body className="bg-image min-h-screen">
         <Providers>
-      <Navegacion/>
+      <ComplexNavbar/>
       {children}
       <FooterPadel/>
       </Providers>
