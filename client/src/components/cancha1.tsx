@@ -24,7 +24,7 @@ export function Cancha1() {
     <> <div className="flex items-center justify-center m-20">
         <div >
       <Card
-        className="h-64 w-96 cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
+        className="h-64 w-96 cursor-pointer overflow-hidden transition-opacity hover:opacity-90 shadow"
         onClick={handleOpen}
       >
         <img

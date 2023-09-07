@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <body className="bg-image min-h-screen">
+    <body className="bg-image min-h-screen w-full max-w-screen-xl mx-auto px-4">
         <Providers>
       <ComplexNavbar/>
       {children}
