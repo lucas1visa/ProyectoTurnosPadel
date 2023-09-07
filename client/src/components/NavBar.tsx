@@ -77,19 +77,19 @@ function ProfileMenu() {
           onClick={closeMenu}
           className={`flex items-center gap-2 rounded ${
             isLastItem
-              ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+              ? "hover:bg-red-500 focus:bg-red active:bg-red-500/10"
               : ""
           }`}
         >
           {React.createElement(icon, {
             className: `h-4 w-4 ${isLastItem ? "text-red-800" : ""}`,
-            strokeWidth: 2,
+            strokeWidth: 3,
           })}
           <Typography
             as="span"
             variant="small"
-            className="font-normal"
-            color={isLastItem ? "red" : "inherit"}
+            className="font-bold"
+            color={isLastItem ? "black" : "inherit"}
             onClick={() => signOut()}
           >
             Cerrar sesión
